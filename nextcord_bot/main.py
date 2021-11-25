@@ -1,6 +1,7 @@
 import nextcord
 from nextcord.ext import commands
 import os
+from token_func import token_reader
 
 intents = nextcord.Intents.all()
 nextcord.members = True
@@ -17,8 +18,4 @@ async def on_ready():
         if filename.endswith('.py'):
             client.load_extension(f'cogs.{filename[:-3]}')
 
-
-f = open("token.txt", "r")
-TOKEN = f.readline()
-
-client.run(TOKEN)
+client.run(token_reader.token_reader_file("token_func/bot_token.txt"))
