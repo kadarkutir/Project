@@ -20,7 +20,7 @@ def rps_embed(amount):
 def dice_embed(amount):
     dice_embed = nextcord.Embed(title = 'Dice',color = 0x1adb51)
     dice_embed.add_field(name = 'Bet:' ,value = f'Your bet is {amount} tokens',inline = False)
-    dice_embed.set_image(url = 'https://im7.ezgif.com/tmp/ezgif-7-d95f7c50dc08.gif')
+    dice_embed.set_image(url = 'https://c.tenor.com/IfbgWLbg_88AAAAC/dice.gif')
     dice_embed.set_footer(text = 'Choose one!')
 
     return dice_embed

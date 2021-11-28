@@ -20,94 +20,105 @@ class dice(commands.Cog):
         dice_embed = gambling_embeds.dice_embed(amount)
         win = gambling_embeds.win_embed(amount)
         lose = gambling_embeds.lose_embed(amount)
+        wallet = int(db_funcs.select(ctx.author.id))
 
-        await ctx.send(embed = dice_embed,view= view)
+        if amount > wallet:
+            await ctx.send('You dont have enough token!')
+        elif isinstance(amount,int) == False:
+            await ctx.send('Enter a number!')
+        elif amount <= 0:
+            await ctx.send('Enter a valid number!')
+        else:
 
-        await view.wait()
+            await ctx.send(embed = dice_embed,view= view)
 
-        if view.value == 1:
-            if random_number == 1:
-                db_funcs.update_plus(amount,ctx.author.id)
+            await view.wait()
 
-                win.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
+            if view.value == 1:
+                if random_number == 1:
+                    db_funcs.update_plus_5(amount,ctx.author.id)
 
-                await ctx.send(embed = win)
+                    win.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
+
+                    await ctx.send(embed = win)
+                else:
+                    db_funcs.update_minus(amount,ctx.author.id)
+
+                    lose.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
+
+                    await ctx.send(embed = lose)
+
+            elif view.value == 2:
+                if random_number == 2:
+                    db_funcs.update_plus_5(amount,ctx.author.id)
+
+                    win.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
+
+                    await ctx.send(embed = win)
+                else:
+                    db_funcs.update_minus(amount,ctx.author.id)
+
+                    lose.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
+
+                    await ctx.send(embed = lose)
+            
+            elif view.value == 3:
+                if random_number == 3:
+                    db_funcs.update_plus_5(amount,ctx.author.id)
+
+                    win.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
+
+                    await ctx.send(embed = win)
+                else:
+                    db_funcs.update_minus(amount,ctx.author.id)
+
+                    lose.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
+
+                    await ctx.send(embed = lose)
+
+            elif view.value == 4:
+                if random_number == 4:
+                    db_funcs.update_plus_5(amount,ctx.author.id)
+
+                    win.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
+
+                    await ctx.send(embed = win)
+                else:
+                    db_funcs.update_minus(amount,ctx.author.id)
+
+                    lose.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
+
+                    await ctx.send(embed = lose)
+
+            elif view.value == 5:
+                if random_number == 5:
+                    db_funcs.update_plus_5(amount,ctx.author.id)
+
+                    win.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
+
+                    await ctx.send(embed = win)
+                else:
+                    db_funcs.update_minus(amount,ctx.author.id)
+
+                    lose.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
+
+                    await ctx.send(embed = lose)
+
+            elif view.value == 6:
+                if random_number == 6:
+                    db_funcs.update_plus_5(amount,ctx.author.id)
+
+                    win.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
+
+                    await ctx.send(embed = win)
+                else:
+                    db_funcs.update_minus(amount,ctx.author.id)
+
+                    lose.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
+
+                    await ctx.send(embed = lose)
             else:
-                db_funcs.update_minus(amount,ctx.author.id)
-
-                lose.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
-
-                await ctx.send(embed = lose)
-
-        elif view.value == 2:
-            if random_number == 2:
-                db_funcs.update_plus(amount,ctx.author.id)
-
-                win.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
-
-                await ctx.send(embed = win)
-            else:
-                db_funcs.update_minus(amount,ctx.author.id)
-
-                lose.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
-
-                await ctx.send(embed = lose)
-        
-        elif view.value == 3:
-            if random_number == 3:
-                db_funcs.update_plus(amount,ctx.author.id)
-
-                win.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
-
-                await ctx.send(embed = win)
-            else:
-                db_funcs.update_minus(amount,ctx.author.id)
-
-                lose.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
-
-                await ctx.send(embed = lose)
-
-        elif view.value == 4:
-            if random_number == 4:
-                db_funcs.update_plus(amount,ctx.author.id)
-
-                win.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
-
-                await ctx.send(embed = win)
-            else:
-                db_funcs.update_minus(amount,ctx.author.id)
-
-                lose.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
-
-                await ctx.send(embed = lose)
-
-        elif view.value == 5:
-            if random_number == 5:
-                db_funcs.update_plus(amount,ctx.author.id)
-
-                win.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
-
-                await ctx.send(embed = win)
-            else:
-                db_funcs.update_minus(amount,ctx.author.id)
-
-                lose.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
-
-                await ctx.send(embed = lose)
-
-        elif view.value == 6:
-            if random_number == 6:
-                db_funcs.update_plus(amount,ctx.author.id)
-
-                win.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
-
-                await ctx.send(embed = win)
-            else:
-                db_funcs.update_minus(amount,ctx.author.id)
-
-                lose.add_field(name = 'Wallet:' , value = f'Your wallet has {db_funcs.select(ctx.author.id)} tokens',inline= False)
-
-                await ctx.send(embed = lose)
+                await ctx.send('?')
 
 
 

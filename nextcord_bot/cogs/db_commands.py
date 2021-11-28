@@ -21,7 +21,7 @@ class db_commands(commands.Cog):
         await ctx.send(embed = tokens_embed)
 
     @commands.command()
-    async def add(self,ctx,amount):
+    async def add(self,ctx,amount:int):
         db.execute("UPDATE wallet SET Tokens = Tokens + ? WHERE UserID = ?", amount , ctx.author.id)
         db.commit()
 
@@ -33,7 +33,7 @@ class db_commands(commands.Cog):
         await ctx.send(embed = tokens_add_embed)
 
     @commands.command()
-    async def token_remove(self,ctx,amount):
+    async def token_remove(self,ctx,amount:int):
         db.execute("UPDATE wallet SET Tokens = Tokens - ? WHERE UserID = ?",amount, ctx.author.id)
         db.commit()
 

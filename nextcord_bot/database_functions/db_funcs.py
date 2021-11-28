@@ -15,3 +15,7 @@ def select(user):
 
     return pure_token
 
+
+def update_plus_5(amount,user):
+    db.execute("UPDATE wallet SET Tokens = Tokens + (?)*5 WHERE UserID = ?", amount , user)
+    db.commit()
