@@ -32,5 +32,9 @@ class jokes(commands.Cog):
     async def something(self,ctx):
         await ctx.send("Vau vau vau",tts=True)
 
+    @commands.command()
+    async def renato(self,ctx):
+        await ctx.send("Kis birtok nagy birtok Renátóval nem birtok!!",tts=True)
+
 def setup(client):
     client.add_cog(jokes(client))
