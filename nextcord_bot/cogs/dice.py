@@ -1,9 +1,9 @@
 import nextcord
 from nextcord.ext import commands
 from buttons.dice_buttons import dice_buttons
-from embeds import gambling_embeds
+from embeds.gambling_embeds import gambling_embeds
 import random
-from database_functions import db_funcs
+from database_functions.db_funcs import db_funcs
 
 class dice(commands.Cog):
 

@@ -1,11 +1,9 @@
 import nextcord
-from nextcord import embeds
-from nextcord.embeds import Embed
 from nextcord.ext import commands
 from buttons.coin_buttons import coin_buttons
 import random
-from database_functions import db_funcs
-from embeds import gambling_embeds
+from database_functions.db_funcs import db_funcs
+from embeds.gambling_embeds import gambling_embeds
 
 class coin(commands.Cog):
 

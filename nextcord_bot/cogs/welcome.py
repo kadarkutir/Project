@@ -1,10 +1,7 @@
 import nextcord
 from nextcord.ext import commands
-from embeds.other_embeds import welcome_embed
 from lib import db
-from embeds import other_embeds
-from buttons.rules_buttons import rules_buttons
-from buttons.roles_buttons import roles_buttons
+from embeds.other_embeds import other_embeds
 
 check ='✅'
 

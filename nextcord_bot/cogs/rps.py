@@ -1,10 +1,9 @@
 import nextcord
 from nextcord.ext import commands
 import random
-from nextcord.ui import view
 from buttons.rps_buttons import rps_buttons
-from embeds import gambling_embeds
-from database_functions import db_funcs
+from embeds.gambling_embeds import gambling_embeds
+from database_functions.db_funcs import db_funcs
 
 class rps(commands.Cog):
 

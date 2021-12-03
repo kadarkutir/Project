@@ -1,21 +1,25 @@
 from lib import db
 
-def update_plus(amount,user):
-    db.execute("UPDATE wallet SET Tokens = Tokens + ? WHERE UserID = ?", amount , user)
-    db.commit()
+class db_funcs:
 
-def update_minus(amount,user):
-    db.execute("UPDATE wallet SET Tokens = Tokens - ? WHERE UserID = ?", amount , user)
-    db.commit()
+    @staticmethod
+    def update_plus(amount,user):
+        db.execute("UPDATE wallet SET Tokens = Tokens + ? WHERE UserID = ?", amount , user)
+        db.commit()
 
+    @staticmethod
+    def update_minus(amount,user):
+        db.execute("UPDATE wallet SET Tokens = Tokens - ? WHERE UserID = ?", amount , user)
+        db.commit()
 
-def select(user):
-    token = db.record("SELECT Tokens FROM wallet WHERE UserID = ?",user)
-    pure_token = str(token).rstrip(",)").lstrip("(")
+    @staticmethod
+    def select(user):
+        token = db.record("SELECT Tokens FROM wallet WHERE UserID = ?",user)
+        pure_token = str(token).rstrip(",)").lstrip("(")
 
-    return pure_token
+        return pure_token
 
-
-def update_plus_5(amount,user):
-    db.execute("UPDATE wallet SET Tokens = Tokens + (?)*5 WHERE UserID = ?", amount , user)
-    db.commit()
+    @staticmethod
+    def update_plus_5(amount,user):
+        db.execute("UPDATE wallet SET Tokens = Tokens + (?)*5 WHERE UserID = ?", amount , user)
+        db.commit()
